@@ -55,8 +55,9 @@ def get_datasets():
 
 
 def single_news_detect():
+    # """<h1 style='font-family: "Nunito",sans-serif; color: midnightblue !important; font-size: 1.5875rem;text-align: left !important;'>南京邮电大学高性能计算与大数据处理研究所 </h1>"""
     html_str = """
-        <h1 style='font-family: "Nunito",sans-serif; color: midnightblue !important; font-size: 1.5875rem;text-align: left !important;'>南京邮电大学高性能计算与大数据处理研究所 </h1>
+        
          <h1 style='font-family: "Nunito",sans-serif; color: midnightblue !important; font-size: 2.1875rem;text-align: center !important;'> 假新闻检测系统</h1>
         <h3 style='color: midnightblue !important; font-size: 1.1875rem;text-align: center !important;'></h3>
     """
@@ -115,4 +116,4 @@ def single_news_detect():
         #         * [orangerfun的CSDN博客](https://blog.csdn.net/orangerfun?spm=1011.2415.3001.5343)
         #         """)
 
-    demo.launch(share=True, server_port=7861)
+    demo.launch(share=True, server_port=7860)
