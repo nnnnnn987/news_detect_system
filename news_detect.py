@@ -25,17 +25,17 @@ def get_dataset(data_name):
 
 
 def get_models():
-    # df = db.get_models()
-    # name = df['name']
-    # return list(name.values)
-    return ["基于对比学习的跨模态关联模型", '基于图网络的多域自适应模型']
+    df = db.get_models()
+    name = df['name']
+    return list(name.values)
+    # return ["基于对比学习的跨模态关联模型", '基于图网络的多域自适应模型']
 
 
 def get_datasets():
-    # df = db.get_datasets()
-    # name = df['name']
-    # return list(name.values)
-    return ["Weibo数据集", "Fakeddit数据集"]
+    df = db.get_datasets()
+    name = df['name']
+    return list(name.values)
+    # return ["Weibo数据集", "Fakeddit数据集"]
 
 
 def check_box_change(inputs):
