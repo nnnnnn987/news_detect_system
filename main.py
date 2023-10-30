@@ -1,9 +1,12 @@
 # This is a sample Python script.
-import demo
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import news_detect
+import single_news_detect
+from multiprocessing import Process
 
 if __name__ == '__main__':
-    demo.demo()
+    p1 = Process(target=single_news_detect.single_news_detect())
+    # p2 = Process(target=news_detect.news_detect())
+    p1.start()
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
