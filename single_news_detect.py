@@ -75,11 +75,7 @@ def single_news_detect():
                     choices=get_datasets(),
                     value="Weibo数据集", label="数据集")
 
-            with gr.Row():
-                check_box = gr.CheckboxGroup(
-                    ["精度(Accuracy)", "查准率(Precision)", "召回率(Recall)", "F-measure", "单样本响应时间"],
-                    label="技术指标", value=["准确率(Accuracy)"]
-                )
+
         # 单样本测试
         with gr.Row():
             image = gr.Image(label="上传图片")
@@ -90,7 +86,7 @@ def single_news_detect():
 
         with gr.Row():
             btn = gr.Button(value="提交")
-            btn.click(fn=single_mode_run, inputs=[text, image, model_name, data_name, check_box], outputs=out_box)
+            btn.click(fn=single_mode_run, inputs=[text, image, model_name, data_name], outputs=out_box)
             clear_btn = gr.ClearButton(components=[image, text, out_box], value="重置")
 
         gr.Examples(
@@ -98,7 +94,7 @@ def single_news_detect():
                 '美国达利安造船厂被拍到一坞五舰的震撼场面，美国这一动作释放了什么信号？',
                 'img1.png', '基于对比学习的跨模态关联模型', 'Weibo数据集'],
                 ['乌克兰可以在今年结束战争，泽连斯基说', 'img_3.png', '基于图网络的多域自适应模型', 'Fakeddit数据集']],
-            inputs=[text, image, model_name, data_name, check_box],
+            inputs=[text, image, model_name, data_name],
             outputs=out_box,
             fn=single_mode_run,
             cache_examples=False,
