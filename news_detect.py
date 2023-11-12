@@ -1,5 +1,5 @@
 import gradio as gr
-# import db.db as db
+import db.db as db
 
 
 def process(mode_name, data_name, check_box):
@@ -25,17 +25,17 @@ def get_dataset(data_name):
 
 
 def get_models():
-    # df = db.get_models()
-    # name = df['name']
-    # return list(name.values)
-    return ["基于对比学习的跨模态关联模型", '基于图网络的多域自适应模型']
+    df = db.get_models()
+    name = df['name']
+    return list(name.values)
+    # return ["基于对比学习的跨模态关联模型", '基于图网络的多域自适应模型']
 
 
 def get_datasets():
-    # df = db.get_datasets()
-    # name = df['name']
-    # return list(name.values)
-    return ["Weibo数据集", "Fakeddit数据集"]
+    df = db.get_datasets()
+    name = df['name']
+    return list(name.values)
+    # return ["Weibo数据集", "Fakeddit数据集"]
 
 
 def check_box_change(inputs):
@@ -54,7 +54,7 @@ def check_box_change(inputs):
     return strStat
 
 
-def news_detect():
+def news_detect(port):
     # ' <h1 style='font-family: "Nunito",sans-serif; color: midnightblue !important; font-size: 1.5875rem;text-align: left !important;'>南京邮电大学高性能计算与大数据处理研究所 </h1>'
     html_str = """
         
@@ -90,4 +90,4 @@ def news_detect():
             btn.click(fn=mode_run, inputs=[model_name, data_name, check_box], outputs=markDown_out)
             clear_btn = gr.ClearButton(components=[markDown_out], value="重置")
 
-    demo.launch(share=True, server_port=7860)
+    demo.launch(share=True,server_name='0.0.0.0', server_port=port)

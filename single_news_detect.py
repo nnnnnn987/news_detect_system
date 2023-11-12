@@ -41,20 +41,22 @@ def get_dataset(data_name):
 
 
 def get_models():
-    # df = db.get_models()
-    # name = df['name']
-    # return list(name.values)
-    return ["基于对比学习的跨模态关联模型", '基于图网络的多域自适应模型']
+    df = db.get_models()
+    name = df['name']
+    return list(name.values)
+    # return ["基于对比学习的跨模态关联模型", '基于图网络的多域自适应模型']
 
 
 def get_datasets():
-    # df = db.get_datasets()
-    # name = df['name']
-    # return list(name.values)
-    return ["Weibo数据集", "Fakeddit数据集"]
+    df = db.get_datasets()
+    name = df['name']
+    return list(name.values)
+    # return ["Weibo数据集", "Fakeddit数据集"]
 
 
-def single_news_detect():
+#
+
+def single_news_detect(port):
     # """<h1 style='font-family: "Nunito",sans-serif; color: midnightblue !important; font-size: 1.5875rem;text-align: left !important;'>南京邮电大学高性能计算与大数据处理研究所 </h1>"""
     html_str = """
         
@@ -74,7 +76,6 @@ def single_news_detect():
                 data_name = gr.Dropdown(
                     choices=get_datasets(),
                     value="Weibo数据集", label="数据集")
-
 
         # 单样本测试
         with gr.Row():
@@ -112,4 +113,4 @@ def single_news_detect():
         #         * [orangerfun的CSDN博客](https://blog.csdn.net/orangerfun?spm=1011.2415.3001.5343)
         #         """)
 
-    demo.launch(share=True, server_port=7860)
+    demo.launch(share=True, server_name='0.0.0.0', server_port=port)
