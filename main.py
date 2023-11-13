@@ -6,7 +6,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='')
 
-parser.add_argument('--port', type=int, default='7890')
+parser.add_argument('--port', type=int, default='7860')
 parser.add_argument('--pageName', type=str, default='news_detect')
 args = parser.parse_args()
 

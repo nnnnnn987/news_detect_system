@@ -12,7 +12,7 @@ def mode_run(mode_name, data_name, check_box):
     return process(mode, dataSet, check_box)
 
 
-def single_mode_run(image, text, mode_name, data_name, check_box):
+def single_mode_run(data_set_dir):
     return "real"
 
 
