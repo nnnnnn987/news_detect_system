@@ -18,7 +18,7 @@ if __name__ == '__main__':
     if args.pageName == 'single_news_detect':
         p1 = Process(target=single_news_detect.single_news_detect(args.port))
         p1.start()
-
+        
 #目前代码只能启动一个页面模块，我们觉得可以扩展支持同时启动多个页面模块。
 if __name__ == '__main__':
     processes = []
@@ -43,5 +43,6 @@ if __name__ == '__main__':
         for p in processes:
             p.terminate()
         sys.exit(1)
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
