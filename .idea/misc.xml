@@ -5,3 +5,6 @@
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (news_detect_system)" project-jdk-type="Python SDK" />
 </project>
+
+//指定Python版本 ：该文件的主要作用是明确项目所使用的 Python SDK 版本为 3.8，并且将其与项目关联起来。这样可以确保项目在开发和运行过程中使用正确的 Python 解释器和相关库，避免因 Python 版本问题导致的兼容性错误和运行时错误。
+项目配置管理 ：它属于项目配置文件的一部分，用于存储项目的特定设置。通过这些配置，开发环境（如 IntelliJ IDEA 或 PyCharm 等 IDE）能够正确地识别项目的结构、依赖和运行环境等信息，从而为开发者提供更好的开发体验，例如代码提示、调试支持和项目构建等功能。

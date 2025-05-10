@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectModuleManager">
+  <component name="ProjectModuleManager">//定义了一个名为 "ProjectModuleManager" 的组件配置，这个组件专门用于管理项目的模块。
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/news_detect_system.iml" filepath="$PROJECT_DIR$/.idea/news_detect_system.iml" />
     </modules>
   </component>
 </project>
+//该文件的主要作用是定义和管理项目中的模块。在软件开发中，项目通常会被划分为多个模块，每个模块负责特定的功能或子系统。通过这个配置文件，开发环境可以识别项目中有哪些模块，以及它们的位置。
