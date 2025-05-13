@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="Git" />
+    <mapping directory="" vcs="Git" />//表示一个映射配置，指定了项目的根目录（directory="" 表示当前项目目录）使用 Git 作为版本控制系统。
   </component>
 </project>
+
+//该段代码主要作用是明确项目中使用的版本控制系统为 Git。通过指定 <mapping directory="" vcs="Git" />，开发环境（如 IntelliJ IDEA 或 PyCharm）能够识别项目使用的是 Git 进行版本控制，从而为开发者提供与 Git 相关的功能支持。

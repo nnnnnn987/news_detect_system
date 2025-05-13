@@ -8,3 +8,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
+
+//这是一个基于 Python 的新闻检测系统项目，主要用于开发一个与新闻检测相关的应用程序。
+使用 Python 3.8 作为开发语言，利用其丰富的库和框架，如 NumPy、Pandas、Scikit-learn 等，进行数据分析和处理，以及 TensorFlow 或 PyTorch 等进行机器学习模型的构建和训练。
