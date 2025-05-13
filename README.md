@@ -31,17 +31,51 @@ A web interface for fake news detection using multimodal analysis (text + images
 
 
 
- <!-- by 刘巧来 -->
-Explain the main functions of the misc.xml, Modules.xml, News_detect_system.iml, and Vcs.xml files, laying the foundation for the subsequent code execution.
-In the db.py code, explain the functions of some main codes. We think there are still some deficiencies in this code, such as the lack of single responsibility and reusability of functions. Also, it fails to handle situations like database connection failures or query errors, which may cause the program to crash or return unfriendly error messages. Therefore, we add error management code to this code, including an exception handling mechanism. This mechanism can capture possible errors and perform appropriate handling, such as logging, returning default values, or reconnecting. This enables the program to promptly capture various exceptions that occur during the program's operation, such as database connection errors, network request timeouts, file read and write errors, etc. And corresponding handling measures are taken according to different types of exceptions to avoid the program from crashing due to exceptions.
-In the Main.py code, explain the functions of some main codes. Currently, the code can only start one page module. We can expand it to support starting multiple page modules simultaneously. By starting multiple page modules at the module, we can fully utilize the multi-core processor resources of the computer, achieve parallel processing of different news detection tasks, and thus improve the overall efficiency and performance of the news detection system.
-Project Introduction
+# Project Introduction              <!-- by 刘巧来 -->
+
 This project is a fake news detection system that evaluates the authenticity of news through machine learning models and datasets. Its main functions include:
-Multiple model selection: Users can choose different models and datasets to detect the authenticity of news.
-Technical indicator display: The system can display the performance indicators of the model, such as precision, precision rate, recall rate, F-measure, and single sample response time.
-Single sample testing: Users can upload pictures and input news text, and the system will give detection results according to the selected model and dataset.
-Web interface interaction: The Gradio library is used to create an interactive Web interface for convenient user operation. 
-<!-- by 刘巧来 -->
+
+- **Multiple model selection**: Users can choose different models and datasets to detect the authenticity of news.
+- **Technical indicator display**: The system can display the performance indicators of the model, such as precision, precision rate, recall rate, F-measure, and single sample response time.
+- **Single sample testing**: Users can upload pictures and input news text, and the system will give detection results according to the selected model and dataset.
+- **Web interface interaction**: The Gradio library is used to create an interactive Web interface for convenient user operation.
+
+## File Function Explanation
+
+### misc.xml, Modules.xml, News_detect_system.iml, Vcs.xml
+
+- **misc.xml**: Contains project configurations and settings that are not covered by other files.
+- **Modules.xml**: Defines the project's module structure, including dependencies and configurations between modules.
+- **News_detect_system.iml**: An IntelliJ IDEA project file that contains project metadata and configuration information.
+- **Vcs.xml**: A version control system configuration file that manages version control settings within the project.
+
+## db.py Code Explanation
+
+- **Main Functions**:
+  - Explains the functions of some main codes in the `db.py` file.
+  - Adds error management code, including an exception handling mechanism to capture possible errors and perform appropriate handling, such as logging, returning default values, or reconnecting.
+
+- **Deficiencies**:
+  - Lack of single responsibility and reusability of functions.
+  - Fails to handle situations like database connection failures or query errors, which may cause the program to crash or return unfriendly error messages.
+
+- **Improvements**:
+  - The exception handling mechanism enables the program to promptly capture various exceptions during operation, such as database connection errors, network request timeouts, and file read/write errors.
+  - Takes corresponding handling measures according to different types of exceptions to prevent the program from crashing due to exceptions.
+
+## Main.py Code Explanation
+
+- **Main Functions**:
+  - Explains the functions of some main codes in the `Main.py` file.
+
+- **Current Limitation**:
+  - Currently, the code can only start one page module.
+
+- **Suggested Expansion**:
+  - Can be expanded to support starting multiple page modules simultaneously.
+  - Starting multiple page modules at the module level allows for the full utilization of the computer's multi-core processor resources.
+  - Enables parallel processing of different news detection tasks.
+  - Improves the overall efficiency and performance of the news detection system.         <!-- by 刘巧来 -->
 
 
 
@@ -49,84 +83,51 @@ Web interface interaction: The Gradio library is used to create an interactive W
 
 
 
-<!-- by 黄明娟 -->
-# news_detect_system
-一：project introduction
+# news_detect_system <!-- by 黄明娟 -->
+
+## Project Introduction
+
 This project is a fake news detection system that evaluates the authenticity of news through machine learning models and datasets. The main functions include:
-Multiple model selection: Users can choose different models and datasets to detect the authenticity of news.
-Technical indicator display: The system can display the performance indicators of the model, such as accuracy, precision, recall, F-measure, and single sample response time.
-Single sample testing: Users can upload images and input news text, and the system will provide detection results based on the selected model and dataset.
-Web interface interaction: An interactive web interface was created using the Gradio library to facilitate user operation.
 
-Two detection modes:
-Batch News Detection Mode (news_detect. py) - Processing large amounts of news data
-Single News Detection Mode (single_news_detect. py) - Analyze a single news item     
+- **Multiple model selection**: Users can choose different models and datasets to detect the authenticity of news.
+- **Technical indicator display**: The system can display the performance indicators of the model, such as accuracy, precision, recall, F-measure, and single sample response time.
+- **Single sample testing**: Users can upload images and input news text, and the system will provide detection results based on the selected model and dataset.
+- **Web interface interaction**: An interactive web interface was created using the Gradio library to facilitate user operation.
 
+There are two detection modes:
+- **Batch News Detection Mode** (`news_detect.py`): Processing large amounts of news data.
+- **Single News Detection Mode** (`single_news_detect.py`): Analyzing a single news item.
 
-二：《new_detect.py》
-1. Used to implement batch detection of fake news based on datasets.
-A user interface was created using Gradio, which includes a model selection drop-down box, a dataset selection drop-down box, and a technical indicator checkbox.
-After selecting the parameters, the user clicks the "submit" button and calls the mode_run function, which retrieves the model and dataset selected by the user. Then, the process function is called, and finally the check_ox_change function is called to generate and
-Display the technical indicators and results of the testing.                    
+## `news_detect.py`
 
-2. Import module
-gradio：A Python library for quickly creating interactive web interfaces. It allows users to create web applications with input-output functionality through simple code.          
+### 1. Overview
 
-3. Core functional functions
-(1) process(mode_name, data_name, check_box)
-Call the check_ox_change function to generate the corresponding HTML table based on the technical indicators selected by the user.
-The entry function for processing detection requests receives the model name, dataset name, and selected metric parameters.   
+Used to implement batch detection of fake news based on datasets. A user interface was created using Gradio, including a model selection drop-down box, a dataset selection drop-down box, and a technical indicator checkbox. After selecting the parameters, the user clicks the "submit" button to call the `mode_run` function, which retrieves the model and dataset selected by the user. Then, the `process` function is called, and finally the `check_box_change` function is called to generate and display the technical indicators and results of the testing.
 
-(2) mode_run(mode_name, data_name, check_box)
-Retrieve the model and dataset selected by the user, and call the process function to process these inputs.
-Run the main function of the detection mode to obtain detailed information about the model and dataset, call process to process and return the result.        
+### 2. Import Module
 
-(3) single_mode_run(data_set_dir)
-Single sample detection function (currently implemented as placeholder), specific detection logic should be implemented in practical applications, currently fixed to return "real" (real news).              
+- **`gradio`**: A Python library for quickly creating interactive web interfaces. It allows users to create web applications with input-output functionality through simple code.
 
-4. auxiliary function 
-(1) get_mode(mode_name)
-Obtain detailed model information.     
+### 3. Core Functional Functions
 
-(2) get_dataset(data_name)
-Get detailed information about the dataset.      
+1. **`process(mode_name, data_name, check_box)`**
+   - Calls the `check_box_change` function to generate the corresponding HTML table based on the technical indicators selected by the user.
+   - The entry function for processing detection requests, receiving the model name, dataset name, and selected metric parameters.
 
-(3) get_models()
-Retrieve the list of available models from the database.
-Return the list of model names.             
+2. **`mode_run(mode_name, data_name, check_box)`**
+   - Retrieves the model and dataset selected by the user and calls the `process` function to process these inputs.
+   - Runs the main function of the detection mode to obtain detailed information about the model and dataset, calls `process` to process and return the result.
 
-(4) get_datasets()
-Retrieve the list of available datasets from the database
-Return a list of dataset names.             
+3. **`single_mode_run(data_set_dir)`**
+   - Single sample detection function (currently implemented as a placeholder). Specific detection logic should be implemented in practical applications. Currently, it fixedly returns "real" (real news).
 
-(5) check_box_change(inputs)
-Generate result display based on user selected indicators
-Currently returning a Markdown table in a fixed format
-Includes sample processing statistics and performance indicators.          
+### 4. Auxiliary Functions
 
-5. Main interface function news_detect(port)
-Function: Create a Gradio web interface where users can select models, datasets, and technical metrics, and submit requests to obtain performance metrics for the model.
-Parameters:
-Port: The port number on which the service is running.
-Web interface layout:
-HTML title: Display 'Fake News Detection System'.
-Model selection: A dropdown menu where users can choose different models.
-Dataset selection: A dropdown menu where users can choose different datasets.
-Technical Indicator Selection: A checkbox group where users can select the technical indicators to be displayed.
-Submit button: After clicking, the user calls the mode_run function to process the input and display the results.
-Clear button: Clear the current output result.
-Start service: Use the demo.launch method to start the Gradio service, set sharing options, server name, and port number.    
+1. **`get_mode(mode_name)`**
+   - Obtains detailed model information.
 
-6. Current implementation characteristics
-Simulated data: Currently, the displayed results are fixed simulated data, and the actual detection logic is yet to be implemented
-Database integration: model and dataset information are obtained from the database
-Responsive design: The interface will dynamically display results based on user selection
-Multi indicator support: can choose to display detection indicators of different dimensions         
+2. **`get_dataset(data_name)`**
+   - Gets detailed information about the dataset.
 
-7. Part to be improved
-Implementation of Actual News Detection Algorithm
-Detailed configuration information of models and datasets
-Dynamic calculation of detection results
-More comprehensive visual display
-User interaction experience optimization           
-<!-- by 黄明娟 -->
+3. **`get_models()`**
+   - Retrieves the list of available         <!-- by 黄明娟 -->
